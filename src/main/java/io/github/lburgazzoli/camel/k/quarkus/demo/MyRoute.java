@@ -10,6 +10,8 @@ public class MyRoute extends RouteBuilder {
     public void configure() throws Exception {
         from("timer:tick?period=1s")
             .process("myProcessor")
+            .setBody()
+                .body(String.class, b -> b.toUpperCase())
             .to("log:demo");
     }
 
@@ -17,6 +19,6 @@ public class MyRoute extends RouteBuilder {
     public static Processor myProcessor(
             @PropertyInject("my.processor.message") String message) {
 
-        return e -> e.getMessage().setBody(message.toUpperCase());
+        return e -> e.getMessage().setBody(message);
     }
 }
