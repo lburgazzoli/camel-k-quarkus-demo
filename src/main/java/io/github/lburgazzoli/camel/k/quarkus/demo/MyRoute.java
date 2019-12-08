@@ -8,7 +8,7 @@ import org.apache.camel.builder.RouteBuilder;
 public class MyRoute extends RouteBuilder {
     @Override
     public void configure() throws Exception {
-        from("timer:tick")
+        from("timer:tick?period=1s")
             .process("myProcessor")
             .to("log:demo");
     }
@@ -17,6 +17,6 @@ public class MyRoute extends RouteBuilder {
     public static Processor myProcessor(
             @PropertyInject("my.processor.message") String message) {
 
-        return e -> e.getMessage().setBody(message);
+        return e -> e.getMessage().setBody(message.toUpperCase());
     }
 }
