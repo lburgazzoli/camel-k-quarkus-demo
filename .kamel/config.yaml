@@ -1,0 +1,15 @@
+kamel:
+  install:
+    camel-version: 3.0.0
+    runtime-version: 1.0.8
+    maven-repositories:
+    - https://repository.apache.org/snapshots@id=apache.snapshots@snapshots@noreleases
+    - https://repository.apache.org/content/repositories/orgapachecamel-1167@id=apache.staging.camel
+    - https://repository.apache.org/content/repositories/orgapachecamel-1166@id=apache.staging.camel.k.runtime
+    - https://oss.sonatype.org/content/repositories/snapshots@id=oss.snapshots@snapshots@noreleases
+  run:
+    properties:
+      - my.processor.message=test
+    dependencies:
+     # workaround for camel-quarkus not declaring in its dependencies management section
+      - bom:org.apache.camel/camel-bom/3.0.0
