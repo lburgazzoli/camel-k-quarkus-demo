@@ -11,7 +11,7 @@ public class MyRoute extends RouteBuilder {
         from("timer:tick?period=1s")
             .process("myProcessor")
             .setBody()
-                .body(String.class, b -> b.toUpperCase().toLowerCase())
+                .body(String.class, b -> b.toUpperCase())
             .to("log:demo");
     }
 

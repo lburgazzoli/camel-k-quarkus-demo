@@ -29,8 +29,8 @@
         <camel-quarkus.version>1.0.0-M2</camel-quarkus.version>
 
         <surefire-plugin.version>3.0.0-M3</surefire-plugin.version>
-        <fabric8-maven-plugin.version>4.3.1</fabric8-maven-plugin.version>
-
+        <jkube.version>0.1.0</jkube.version>
+        
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -94,9 +94,9 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>io.fabric8</groupId>
-                <artifactId>fabric8-maven-plugin</artifactId>
-                <version>${fabric8-maven-plugin.version}</version>
+                <groupId>org.eclipse.jkube</groupId>
+                <artifactId>k8s-maven-plugin</artifactId>
+                <version>${jkube.version}</version>
                 <configuration>
                     <images>
                         <image>
@@ -160,9 +160,9 @@
                         </executions>
                     </plugin>
                     <plugin>
-                        <groupId>io.fabric8</groupId>
-                        <artifactId>fabric8-maven-plugin</artifactId>
-                        <version>${fabric8-maven-plugin.version}</version>
+                        <groupId>org.eclipse.jkube</groupId>
+                        <artifactId>k8s-maven-plugin</artifactId>
+                        <version>${jkube.version}</version>
                         <configuration>
                             <images>
                                 <image>
